@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+ 
+<?php
+
+include 'confiq.php';
+
+?>
+
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,44 +42,56 @@
       <th scope="col">id</th>
       <th scope="col">Name</th>
       <th scope="col">Subject</th>
+      <th scope="col">section</th>
       <th scope="col">Phone</th>
       <th scope="col">Email</th>
       <th scope="col">Address</th>
+      <th scope="col">blood</th>
+
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Anisur</td>
-      <td>English</td>
-      <td>0199898989</td>
-      <td>anisur018@gmail</td>
-      <td>Uttora,Dhaka </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Anisur</td>
-      <td>English</td>
-      <td>0199898989</td>
-      <td>anisur018@gmail</td>
-      <td>Uttora,Dhaka </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Anisur</td>
-      <td>English</td>
-      <td>0199898989</td>
-      <td>anisur018@gmail</td>
-      <td>Uttora,Dhaka </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Anisur</td>
-      <td>English</td>
-      <td>0199898989</td>
-      <td>anisur018@gmail</td>
-      <td>Uttora,Dhaka </td>
-    </tr>
+
+  <?php
+
+   $query = 'SELECT * FROM teacher';
+
+    $teacher = mysqli_query($connection, $query);
+
+    $i=1;
+
+
+    while($row = mysqli_fetch_assoc($teacher)){
+
+
+      $id = $row['id'];
+      $name = $row['name'];
+      $subject = $row['subject'];
+      $section = $row['section'];
+      $phone = $row['phone'];
+      $email = $row['email'];
+      $address = $row['address'];
+      $blood = $row['blood_group'];
+
+
+     echo'<tr>
+      <th scope="row">'.$i.'</th>
+      <td>'.$name.'</td>
+      <td>'.$subject.'</td>
+      <td>'.$section.'</td>
+      <td>'.$phone.'</td>
+      <td>'.$email.'</td>
+      <td>'.$address.'</td>
+       <td>'.$blood.'</td>
+    </tr>';
+
+     $i++;
+
+
+    }
+
+   ?>
+    
   </tbody>
 </table>
     </div>
