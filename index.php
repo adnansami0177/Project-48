@@ -28,7 +28,7 @@ include 'confiq.php';
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Create Teacher</a>
+          <a class="nav-link" href="create.php">Create Teacher</a>
         </li>
       </ul>
      </div>
